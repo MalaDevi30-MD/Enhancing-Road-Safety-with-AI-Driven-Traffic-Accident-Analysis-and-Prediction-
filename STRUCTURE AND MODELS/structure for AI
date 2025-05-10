@@ -1,0 +1,46 @@
+AI-Traffic-Safety/
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+├── requirements.txt
+├── config.yaml
+├── docker-compose.yml
+│
+├── backend/
+│   ├── app/
+│   │   ├── _init_.py
+│   │   ├── main.py               # FastAPI/Flask entrypoint
+│   │   ├── models/
+│   │   │   └── accident_model.pkl
+│   │   ├── routes/
+│   │   │   └── predict.py        # API endpoint
+│   │   ├── services/
+│   │   │   ├── preprocessing.py
+│   │   │   └── inference.py
+│   │   └── utils/
+│   │       └── helpers.py
+│   ├── tests/
+│   │   └── test_api.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   ├── components/
+│   │   │   ├── Map.js
+│   │   │   ├── Dashboard.js
+│   │   │   └── RiskPredictor.js
+│   │   └── styles/
+│   │       └── main.css
+│   └── package.json
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+└── models/
+    └── accident_model.pkl
