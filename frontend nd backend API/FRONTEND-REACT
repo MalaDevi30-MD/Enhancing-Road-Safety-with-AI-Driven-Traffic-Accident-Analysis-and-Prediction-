@@ -1,0 +1,29 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const RiskPredictor = () => {
+  const [form, setForm] = useState({ latitude: '', longitude: '', hour: '', weather: '' });
+  const [result, setResult] = useState(null);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    const res = await axios.post('http://localhost:8000/api/predict', form);
+    setResult(res.data.risk_level);
+  };
+
+  return (
+    <div>
+      <input name="latitude" placeholder="Latitude" onChange={handleChange} />
+      <input name="longitude" placeholder="Longitude" onChange={handleChange} />
+      <input name="hour" placeholder="Hour (0–23)" onChange={handleChange} />
+      <input name="weather" placeholder="Weather" onChange={handleChange} />
+      <button onClick={handleSubmit}>Predict</button>
+      {result && <p>Predicted Risk Level: {result}</p>}
+    </div>
+  );
+};
+
+export default RiskPredictor;
